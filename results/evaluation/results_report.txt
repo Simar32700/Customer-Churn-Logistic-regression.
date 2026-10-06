@@ -1,0 +1,332 @@
+CUSTOMER CHURN MODEL EVALUATION
+Decision threshold: 0.75
+
+METRICS
+threshold: 0.750000
+accuracy: 0.835357
+precision_churn: 0.894472
+recall_churn: 0.475936
+f1_churn: 0.621291
+specificity: 0.977754
+negative_predictive_value: 0.824844
+false_positive_rate: 0.022246
+false_negative_rate: 0.524064
+balanced_accuracy: 0.726845
+matthews_correlation_coefficient: 0.571267
+cohen_kappa: 0.528325
+true_negatives: 923
+false_positives: 21
+false_negatives: 196
+true_positives: 178
+roc_auc: 0.921301
+average_precision: 0.823107
+pr_auc_trapezoidal: 0.822675
+log_loss: 0.322157
+brier_score: 0.099572
+test_rows: 1318
+input_features: 45
+actual_churners: 374
+actual_stayers: 944
+churn_prevalence: 0.283763
+always_stayed_baseline_accuracy: 0.716237
+majority_class_baseline_accuracy: 0.716237
+
+CLASSIFICATION REPORT
+              precision    recall  f1-score   support
+
+      Stayed     0.8248    0.9778    0.8948       944
+     Churned     0.8945    0.4759    0.6213       374
+
+    accuracy                         0.8354      1318
+   macro avg     0.8597    0.7268    0.7581      1318
+weighted avg     0.8446    0.8354    0.8172      1318
+
+CONFUSION MATRIX
+Rows: actual; columns: predicted. Order: Stayed, Churned.
+[[923  21]
+ [196 178]]
+
+THRESHOLD COMPARISON
+ threshold  accuracy  precision_churn  recall_churn  f1_churn  specificity  negative_predictive_value  false_positive_rate  false_negative_rate  balanced_accuracy  matthews_correlation_coefficient  cohen_kappa  true_negatives  false_positives  false_negatives  true_positives
+      0.50  0.862671         0.748072      0.778075  0.762779     0.896186                   0.910657             0.103814             0.221925           0.837131                          0.666450     0.666195             846               98               83             291
+      0.75  0.835357         0.894472      0.475936  0.621291     0.977754                   0.824844             0.022246             0.524064           0.726845                          0.571267     0.528325             923               21              196             178
+
+MODEL PARAMETERS
+{
+  "C": 1.0,
+  "class_weight": null,
+  "dual": false,
+  "fit_intercept": true,
+  "intercept_scaling": 1,
+  "l1_ratio": null,
+  "max_iter": 2000,
+  "multi_class": "auto",
+  "n_jobs": null,
+  "penalty": "l2",
+  "random_state": 42,
+  "solver": "lbfgs",
+  "tol": 0.0001,
+  "verbose": 0,
+  "warm_start": false
+}
+
+Intercept (beta_0): [-0.6790178212436997]
+Training iterations: [48]
+
+PREPROCESSING AND TRAINING DETAILS
+{
+  "training": {
+    "model": "LogisticRegression",
+    "training_rows": 5271,
+    "feature_columns": [
+      "Gender",
+      "Age",
+      "Married",
+      "Number of Dependents",
+      "Latitude",
+      "Longitude",
+      "Number of Referrals",
+      "Tenure in Months",
+      "Phone Service",
+      "Avg Monthly Long Distance Charges",
+      "Multiple Lines",
+      "Internet Service",
+      "Avg Monthly GB Download",
+      "Online Security",
+      "Online Backup",
+      "Device Protection Plan",
+      "Premium Tech Support",
+      "Streaming TV",
+      "Streaming Movies",
+      "Streaming Music",
+      "Unlimited Data",
+      "Paperless Billing",
+      "Monthly Charge",
+      "Total Charges",
+      "Total Refunds",
+      "Total Extra Data Charges",
+      "Total Long Distance Charges",
+      "Total Revenue",
+      "Population",
+      "Offer_None",
+      "Offer_Offer A",
+      "Offer_Offer B",
+      "Offer_Offer C",
+      "Offer_Offer D",
+      "Offer_Offer E",
+      "Internet Type_Cable",
+      "Internet Type_DSL",
+      "Internet Type_Fiber Optic",
+      "Internet Type_Not applicable",
+      "Contract_Month-to-Month",
+      "Contract_One Year",
+      "Contract_Two Year",
+      "Payment Method_Bank Withdrawal",
+      "Payment Method_Credit Card",
+      "Payment Method_Mailed Check"
+    ],
+    "target_mapping": {
+      "Stayed": 0,
+      "Churned": 1
+    },
+    "prediction_threshold": 0.75,
+    "prediction_rule": "Use predict_churn with predict_proba; estimator.predict still uses its default threshold.",
+    "iterations": 48,
+    "test_data_used": false,
+    "pre_churn_availability_verified": false,
+    "input_requirement": "Numeric inputs prepared with the saved training preprocessing, in feature_columns order."
+  },
+  "preprocessing": {
+    "training_medians": {
+      "Number of Referrals": 0.0,
+      "Monthly Charge": 72.6
+    },
+    "training_binary_modes": {
+      "Married": "Yes",
+      "Phone Service": "Yes",
+      "Multiple Lines": "No",
+      "Internet Service": "Yes",
+      "Online Security": "No",
+      "Online Backup": "No",
+      "Device Protection Plan": "No",
+      "Premium Tech Support": "No",
+      "Streaming TV": "Yes",
+      "Streaming Movies": "Yes",
+      "Streaming Music": "No",
+      "Unlimited Data": "Yes",
+      "Paperless Billing": "Yes",
+      "Offer": "None"
+    },
+    "binary_columns": [
+      "Married",
+      "Phone Service",
+      "Multiple Lines",
+      "Internet Service",
+      "Online Security",
+      "Online Backup",
+      "Device Protection Plan",
+      "Premium Tech Support",
+      "Streaming TV",
+      "Streaming Movies",
+      "Streaming Music",
+      "Unlimited Data",
+      "Paperless Billing"
+    ],
+    "binary_mapping": {
+      "Yes": 1,
+      "No": 0,
+      "Not applicable": 0
+    },
+    "gender_mapping": {
+      "Female": 0,
+      "Male": 1
+    },
+    "target_column": "Customer Status",
+    "target_mapping": {
+      "Stayed": 0,
+      "Churned": 1
+    },
+    "test_size": 0.2,
+    "random_state": 42,
+    "field_aliases": {
+      "CustomerID": "Customer ID"
+    },
+    "pre_churn_availability_verified": false,
+    "timing_review": [
+      {
+        "Field": "Age",
+        "Description": "The customer\u2019s current age, in years, at the time the fiscal quarter ended (Q2 2022)"
+      },
+      {
+        "Field": "Tenure in Months",
+        "Description": "Indicates the total amount of months that the customer has been with the company by the end of the quarter specified above"
+      },
+      {
+        "Field": "Avg Monthly Long Distance Charges",
+        "Description": "Indicates the customer\u2019s average long distance charges, calculated to the end of the quarter specified above (if the customer is not subscribed to home phone service, this will be 0)"
+      },
+      {
+        "Field": "Avg Monthly GB Download",
+        "Description": "Indicates the customer\u2019s average download volume in gigabytes, calculated to the end of the quarter specified above (if the customer is not subscribed to internet service, this will be 0)"
+      },
+      {
+        "Field": "Total Charges",
+        "Description": "Indicates the customer\u2019s total charges, calculated to the end of the quarter specified above"
+      },
+      {
+        "Field": "Total Refunds",
+        "Description": "Indicates the customer\u2019s total refunds, calculated to the end of the quarter specified above"
+      },
+      {
+        "Field": "Total Extra Data Charges",
+        "Description": "Indicates the customer\u2019s total charges for extra data downloads above those specified in their plan, by the end of the quarter specified above"
+      },
+      {
+        "Field": "Total Long Distance Charges",
+        "Description": "Indicates the customer\u2019s total charges for long distance above those specified in their plan, by the end of the quarter specified above"
+      },
+      {
+        "Field": "Total Revenue",
+        "Description": "Indicates the company's total revenue from this customer, calculated to the end of the quarter specified above (Total Charges - Total Refurnds + Total Extra Data Charges + Total Lond Distance Charges)"
+      },
+      {
+        "Field": "Customer Status",
+        "Description": "Indicates the status of the customer at the end of the quarter: Churned, Stayed, or Joined"
+      },
+      {
+        "Field": "Churn Category",
+        "Description": "A high-level category for the customer\u2019s reason for churning, which is asked when they leave the company: Attitude, Competitor, Dissatisfaction, Other, Price (directly related to Churn Reason)"
+      },
+      {
+        "Field": "Churn Reason",
+        "Description": "A customer\u2019s specific reason for leaving the company, which is asked when they leave the company (directly related to Churn Category)"
+      }
+    ],
+    "feature_columns": [
+      "Gender",
+      "Age",
+      "Married",
+      "Number of Dependents",
+      "Latitude",
+      "Longitude",
+      "Number of Referrals",
+      "Tenure in Months",
+      "Phone Service",
+      "Avg Monthly Long Distance Charges",
+      "Multiple Lines",
+      "Internet Service",
+      "Avg Monthly GB Download",
+      "Online Security",
+      "Online Backup",
+      "Device Protection Plan",
+      "Premium Tech Support",
+      "Streaming TV",
+      "Streaming Movies",
+      "Streaming Music",
+      "Unlimited Data",
+      "Paperless Billing",
+      "Monthly Charge",
+      "Total Charges",
+      "Total Refunds",
+      "Total Extra Data Charges",
+      "Total Long Distance Charges",
+      "Total Revenue",
+      "Population",
+      "Offer_None",
+      "Offer_Offer A",
+      "Offer_Offer B",
+      "Offer_Offer C",
+      "Offer_Offer D",
+      "Offer_Offer E",
+      "Internet Type_Cable",
+      "Internet Type_DSL",
+      "Internet Type_Fiber Optic",
+      "Internet Type_Not applicable",
+      "Contract_Month-to-Month",
+      "Contract_One Year",
+      "Contract_Two Year",
+      "Payment Method_Bank Withdrawal",
+      "Payment Method_Credit Card",
+      "Payment Method_Mailed Check"
+    ],
+    "categorical_columns": [
+      "Offer",
+      "Internet Type",
+      "Contract",
+      "Payment Method"
+    ],
+    "excluded_input_columns": [
+      "Customer Status",
+      "Customer ID",
+      "City",
+      "Zip Code"
+    ],
+    "encoder_file": "categorical_encoder.joblib",
+    "scaled_columns": [
+      "Age",
+      "Number of Dependents",
+      "Latitude",
+      "Longitude",
+      "Number of Referrals",
+      "Tenure in Months",
+      "Avg Monthly Long Distance Charges",
+      "Avg Monthly GB Download",
+      "Monthly Charge",
+      "Total Charges",
+      "Total Refunds",
+      "Total Extra Data Charges",
+      "Total Long Distance Charges",
+      "Total Revenue",
+      "Population"
+    ],
+    "scaler_file": "numeric_scaler.joblib"
+  }
+}
+
+LIMITATIONS
+The test set has been evaluated previously; this is not a new untouched final test.
+Pre-churn feature availability is unverified. Scores concern recorded outcomes, not proven future churn forecasts.
+ROC AUC and probability losses use probabilities, not thresholded Yes/No predictions.
+Higher log loss and Brier score are worse; higher accuracy, F1, ROC AUC and average precision are better.
+Average precision and trapezoidal PR AUC are different summaries of the precision-recall curve.
+Undefined classification precision/recall/F1 is reported as zero; undefined rates are null.

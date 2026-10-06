@@ -1,0 +1,185 @@
+{
+  "training_medians": {
+    "Number of Referrals": 0.0,
+    "Monthly Charge": 72.6
+  },
+  "training_binary_modes": {
+    "Married": "Yes",
+    "Phone Service": "Yes",
+    "Multiple Lines": "No",
+    "Internet Service": "Yes",
+    "Online Security": "No",
+    "Online Backup": "No",
+    "Device Protection Plan": "No",
+    "Premium Tech Support": "No",
+    "Streaming TV": "Yes",
+    "Streaming Movies": "Yes",
+    "Streaming Music": "No",
+    "Unlimited Data": "Yes",
+    "Paperless Billing": "Yes",
+    "Offer": "None"
+  },
+  "binary_columns": [
+    "Married",
+    "Phone Service",
+    "Multiple Lines",
+    "Internet Service",
+    "Online Security",
+    "Online Backup",
+    "Device Protection Plan",
+    "Premium Tech Support",
+    "Streaming TV",
+    "Streaming Movies",
+    "Streaming Music",
+    "Unlimited Data",
+    "Paperless Billing"
+  ],
+  "binary_mapping": {
+    "Yes": 1,
+    "No": 0,
+    "Not applicable": 0
+  },
+  "gender_mapping": {
+    "Female": 0,
+    "Male": 1
+  },
+  "target_column": "Customer Status",
+  "target_mapping": {
+    "Stayed": 0,
+    "Churned": 1
+  },
+  "test_size": 0.2,
+  "random_state": 42,
+  "field_aliases": {
+    "CustomerID": "Customer ID"
+  },
+  "pre_churn_availability_verified": false,
+  "timing_review": [
+    {
+      "Field": "Age",
+      "Description": "The customer\u2019s current age, in years, at the time the fiscal quarter ended (Q2 2022)"
+    },
+    {
+      "Field": "Tenure in Months",
+      "Description": "Indicates the total amount of months that the customer has been with the company by the end of the quarter specified above"
+    },
+    {
+      "Field": "Avg Monthly Long Distance Charges",
+      "Description": "Indicates the customer\u2019s average long distance charges, calculated to the end of the quarter specified above (if the customer is not subscribed to home phone service, this will be 0)"
+    },
+    {
+      "Field": "Avg Monthly GB Download",
+      "Description": "Indicates the customer\u2019s average download volume in gigabytes, calculated to the end of the quarter specified above (if the customer is not subscribed to internet service, this will be 0)"
+    },
+    {
+      "Field": "Total Charges",
+      "Description": "Indicates the customer\u2019s total charges, calculated to the end of the quarter specified above"
+    },
+    {
+      "Field": "Total Refunds",
+      "Description": "Indicates the customer\u2019s total refunds, calculated to the end of the quarter specified above"
+    },
+    {
+      "Field": "Total Extra Data Charges",
+      "Description": "Indicates the customer\u2019s total charges for extra data downloads above those specified in their plan, by the end of the quarter specified above"
+    },
+    {
+      "Field": "Total Long Distance Charges",
+      "Description": "Indicates the customer\u2019s total charges for long distance above those specified in their plan, by the end of the quarter specified above"
+    },
+    {
+      "Field": "Total Revenue",
+      "Description": "Indicates the company's total revenue from this customer, calculated to the end of the quarter specified above (Total Charges - Total Refurnds + Total Extra Data Charges + Total Lond Distance Charges)"
+    },
+    {
+      "Field": "Customer Status",
+      "Description": "Indicates the status of the customer at the end of the quarter: Churned, Stayed, or Joined"
+    },
+    {
+      "Field": "Churn Category",
+      "Description": "A high-level category for the customer\u2019s reason for churning, which is asked when they leave the company: Attitude, Competitor, Dissatisfaction, Other, Price (directly related to Churn Reason)"
+    },
+    {
+      "Field": "Churn Reason",
+      "Description": "A customer\u2019s specific reason for leaving the company, which is asked when they leave the company (directly related to Churn Category)"
+    }
+  ],
+  "feature_columns": [
+    "Gender",
+    "Age",
+    "Married",
+    "Number of Dependents",
+    "Latitude",
+    "Longitude",
+    "Number of Referrals",
+    "Tenure in Months",
+    "Phone Service",
+    "Avg Monthly Long Distance Charges",
+    "Multiple Lines",
+    "Internet Service",
+    "Avg Monthly GB Download",
+    "Online Security",
+    "Online Backup",
+    "Device Protection Plan",
+    "Premium Tech Support",
+    "Streaming TV",
+    "Streaming Movies",
+    "Streaming Music",
+    "Unlimited Data",
+    "Paperless Billing",
+    "Monthly Charge",
+    "Total Charges",
+    "Total Refunds",
+    "Total Extra Data Charges",
+    "Total Long Distance Charges",
+    "Total Revenue",
+    "Population",
+    "Offer_None",
+    "Offer_Offer A",
+    "Offer_Offer B",
+    "Offer_Offer C",
+    "Offer_Offer D",
+    "Offer_Offer E",
+    "Internet Type_Cable",
+    "Internet Type_DSL",
+    "Internet Type_Fiber Optic",
+    "Internet Type_Not applicable",
+    "Contract_Month-to-Month",
+    "Contract_One Year",
+    "Contract_Two Year",
+    "Payment Method_Bank Withdrawal",
+    "Payment Method_Credit Card",
+    "Payment Method_Mailed Check"
+  ],
+  "categorical_columns": [
+    "Offer",
+    "Internet Type",
+    "Contract",
+    "Payment Method"
+  ],
+  "excluded_input_columns": [
+    "Customer Status",
+    "Customer ID",
+    "City",
+    "Zip Code"
+  ],
+  "encoder_file": "categorical_encoder.joblib",
+  "scaled_columns": [
+    "Age",
+    "Number of Dependents",
+    "Latitude",
+    "Longitude",
+    "Number of Referrals",
+    "Tenure in Months",
+    "Avg Monthly Long Distance Charges",
+    "Avg Monthly GB Download",
+    "Monthly Charge",
+    "Total Charges",
+    "Total Refunds",
+    "Total Extra Data Charges",
+    "Total Long Distance Charges",
+    "Total Revenue",
+    "Population"
+  ],
+  "scaler_file": "numeric_scaler.joblib"
+}
